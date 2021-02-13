@@ -312,6 +312,7 @@ namespace MilitaryCollege.Controllers
                             }
                         }
 
+
                         // loop in Daily Notes
                         int CountDailyNotePosted = 0;
                         if (drVM.DailyNotes!=null)
@@ -374,6 +375,8 @@ namespace MilitaryCollege.Controllers
                                     }
                                     else
                                     {
+                                        // if an error exist , i need to call ddlreson cz each user has reson so id need ddlreason data
+                                        drVM.DDLReason = new SelectList(_context.ReasonOfIncidents.ToList().OrderBy(n => n.Name), "Id", "Name");
                                         TempData["message"] = NotificationSystem.AddMessage("يجب التأكد من التاريخ    ", NotificationType.Danger.Value);
                                         return View(drVM);
                                     }
@@ -382,6 +385,8 @@ namespace MilitaryCollege.Controllers
                                 }
                                 else
                                 {
+                                    // if an error exist , i need to call ddlreson cz each user has reson so id need ddlreason data
+                                    drVM.DDLReason = new SelectList(_context.ReasonOfIncidents.ToList().OrderBy(n => n.Name), "Id", "Name");
                                     TempData["message"] = NotificationSystem.AddMessage("يوجد وقوعات دون ضابط ", NotificationType.Danger.Value);
                                     return View(drVM);
                                 }

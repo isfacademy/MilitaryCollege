@@ -13,7 +13,7 @@ namespace MilitaryCollege.Models.ViewModels
         {
             
             // no need cz in create http get i retreive the  dailyincidents from database
-            //this.DailyIncidents = new List<DailyIncident>();
+           // this.DailyIncidents = new List<DailyIncident>();
         }
         public int ReportId { get; set; }
         public int TournamentId { get; set; }
