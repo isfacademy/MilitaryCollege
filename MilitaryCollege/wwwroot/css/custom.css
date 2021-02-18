@@ -81,7 +81,14 @@ input.form-control {
     .no-print, .no-print * {
         display: none !important;
     }
+    @page {
+        size: auto;
+        margin-top: 4mm;
+        margin-bottom:0mm;
+    }
 }
+
+
 
 .ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
     color: transparent;
@@ -109,8 +116,8 @@ a.ui-datepicker-prev:hover, a.ui-datepicker-next:hover {
 }
 
 .btn-logout {
-    color:red !important;
-    background-color:white !important;
+    color: red !important;
+    background-color: white !important;
 }
 
 a.btn-logout:hover {
@@ -132,3 +139,15 @@ a.btn-logout:hover {
     border-bottom: 8px solid #05baff;
 }
 
+.ReportDropdownList {
+    background-image: -webkit-linear-gradient(45deg,#3399fe 10%,transparent 20%,#3399fe 60%);
+    background-color: black;
+    text-align: right;
+    right: 2%;
+    min-width: 11rem;
+}
+
+.dropdown-item:hover {
+    background-color: unset !important;
+    box-shadow: 0 10px 2px -2px #05baff;
+}
