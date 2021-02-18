@@ -535,7 +535,19 @@ namespace MilitaryCollege.Controllers
             return Json(officer);
         }
 
+        [Authorize(Roles = "SuperAdmin ,Admin")]
+
         public ActionResult PersonelInformationReport()
+        {
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            // tournament Id assigned to current user Id 
+            int? TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
+            var officers = _context.Officers.Where(i => i.TournamentId == TournamentId).OrderBy(m => m.MilitaryNumber).ToList();
+            return View(officers);
+        }
+        [Authorize(Roles = "SuperAdmin ,Admin")]
+
+        public ActionResult EducationalAttainmentReport()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             // tournament Id assigned to current user Id 
