@@ -553,7 +553,7 @@ namespace MilitaryCollege.Controllers
             // tournament Id assigned to current user Id 
             int? TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
             //ToDo:
-           // var officers = _context.Officers.Where(i => i.TournamentId == TournamentId).OrderBy(m => m.MilitaryNumber).ToList();
+            var officers = _context.Officers.Where(i => i.TournamentId == TournamentId).OrderBy(m => m.MilitaryNumber).ToList();
             return View(officers);
         }
     }
