@@ -1,5 +1,139 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿
+
+@model IEnumerable<MilitaryCollege.Models.Officer>
+
+<div class="container">
+    @*<div class="row">
+            <input type="button" value="تحميل الجدول" class="btn btn-danger" onclick="return PrintEducationalList()" />
+        </div>*@
+    <div class="row">
+        <table id="educationaltable" class=" dataTable table-striped table-bordered mb-3 mt-2" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        الاسم و الشهرة
+                    </th>
+                    <th>
+                        الشهادة
+                    </th>
+                    <th>
+                        المصدر
+                    </th>
+                    <th>
+                        التاريخ
+                    </th>
+                    <th>
+                        العلامة
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var i = 0;
+                    string trclass = "";
+                }
+                @foreach (var officer in Model)
+                {
+                    trclass = i % 2 == 0 ? "even" : "odd";
+
+                    <tr class="@trclass" style="border-top:2px solid #000000">
+
+                        <td rowspan="@officer.EducationalAttainments.Count">@officer.Name</td>
+                        <td>@officer.EducationalAttainments.First().Certificate</td>
+                        <td>@officer.EducationalAttainments.First().Source</td>
+                        <td>@officer.EducationalAttainments.First().Date</td>
+                        <td>@officer.EducationalAttainments.First().Grade</td>
+
+                    </tr>
+                    var j = 0;
+
+                    @foreach (var ed in officer.EducationalAttainments)
+                    {
+
+
+                        if (j != 0)
+                        {
+                            <tr class="@trclass">
+                                <td>@ed.Certificate</td>
+                                <td>@ed.Source</td>
+                                <td>@ed.Date</td>
+                                <td>@ed.Grade</td>
+                            </tr>
+                        }
+                        j++;
+
+                    }
+                    i++;
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@section Styles
+{
+    <link href="~/css/printStyle.css" class="printStyle" rel="stylesheet" />
+
+    <style>
+        .odd {
+            background-color: #dee2e6 !important;
+        }
+
+        .even {
+            background-color: unset !important;
+        }
+
+        table.dataTable td, table.dataTable th {
+            text-align: center;
+            vertical-align: middle !important;
+        }
+
+
+
+        thead {
+            background-color: #3397fb;
+        }
+    </style>
+
+}
+@section Scripts
+{
+    <script>
+    //function PrintEducationalList() {
+    //    var TableToPrint = "";
+    //    var newWin = window.open('PrintDiv', 'Print-Window', 'width=920,height=750,top=100,left=100');
+    //    newWin.document.open();
+    //    //TableToPrint += "<h4>المديرية العامة لقوى الأمن الداخلي	</h4>";
+    //    //TableToPrint += "<h4>    وحدة معهد قوى الأمن الداخلي		</h4>";
+    //    //TableToPrint += "<h4>      كلية الضباط / حقل الرماية		</h4>";
+    //    //TableToPrint += "<h2>      جدول الدورات عن شهر '" + ArabicMonthName + "'		</h2 > ";
+    //    var table = document.getElementById("educationaltable").outerHTML;
+
+    //    TableToPrint = table;
+
+    //    newWin.document.write("<html><body class='bodytoprint' dir='rtl'>");
+    //    newWin.document.write("<h4><a href='javascript:void(0);' class='btnprint' onclick='return print()'>Print</a></h4>");
+
+    //    //Append the external CSS file.
+    //    $("link[class='printStyle']").each(function () {
+    //        $.ajax({
+    //            url: $(this).attr("href"),
+    //            dataType: "text",
+    //            success: function (cssText) {
+    //                newWin.document.write('<style>');
+    //                newWin.document.write(cssText);
+    //                newWin.document.write('</style>');
+    //            }
+    //        });
+    //    })
+
+    //    //$('<div/>').append(TableToPrint.clone()).html();
+    //    newWin.document.write(TableToPrint);
+    //    newWin.document.write("</body></html>");
+    //    //newWin.print();
+    //    //newWin.close();
+    //}
+    </script>
 }

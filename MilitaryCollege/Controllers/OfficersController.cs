@@ -547,14 +547,14 @@ namespace MilitaryCollege.Controllers
         }
         [Authorize(Roles = "SuperAdmin ,Admin")]
 
-        public ActionResult EducationalAttainmentReport()
+        public ActionResult EducationalReport()
         {
+
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             // tournament Id assigned to current user Id 
-            int? TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
-            //ToDo:
-            var officers = _context.Officers.Where(i => i.TournamentId == TournamentId).OrderBy(m => m.MilitaryNumber).ToList();
-            return View(officers);
+            int TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
+            var officer = _context.Officers.Include(e => e.EducationalAttainments).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
+            return View(officer);
         }
     }
 }
