@@ -547,7 +547,7 @@ namespace MilitaryCollege.Controllers
         }
         [Authorize(Roles = "SuperAdmin ,Admin")]
 
-        public ActionResult EducationalReport()
+        public ActionResult EducationalAttainmentReport()
         {
 
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
