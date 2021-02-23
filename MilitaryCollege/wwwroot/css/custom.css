@@ -82,7 +82,7 @@ input.form-control {
         display: none !important;
     }
     @page {
-        size: auto;
+        size: auto A4 ;
         margin-top: 4mm;
         margin-bottom:0mm;
     }

@@ -36,9 +36,9 @@
                 {
                     trclass = i % 2 == 0 ? "even" : "odd";
 
-                    <tr class="@trclass" style="border-top:2px solid #000000">
+                    <tr class="@trclass" style="border-top:2px solid black">
 
-                        <td rowspan="@officer.EducationalAttainments.Count">@officer.Name</td>
+                        <td rowspan="@officer.EducationalAttainments.Count"><b>@officer.Name</b></td>
                         <td>@officer.EducationalAttainments.First().Certificate</td>
                         <td>@officer.EducationalAttainments.First().Source</td>
                         <td>@officer.EducationalAttainments.First().Date</td>
@@ -95,6 +95,7 @@
         thead {
             background-color: #3397fb;
         }
+        
     </style>
 
 }
