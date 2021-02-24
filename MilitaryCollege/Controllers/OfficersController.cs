@@ -553,8 +553,8 @@ namespace MilitaryCollege.Controllers
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             // tournament Id assigned to current user Id 
             int TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
-            var officer = _context.Officers.Include(e => e.EducationalAttainments).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
-            return View(officer);
+            var officers = _context.Officers.Include(e => e.EducationalAttainments).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
+            return View(officers);
         }
         public ActionResult HobbiesReport()
         {
@@ -562,8 +562,8 @@ namespace MilitaryCollege.Controllers
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             // tournament Id assigned to current user Id 
             int TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
-            var officer = _context.Officers.Include(e => e.Hobbies).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
-            return View(officer);
+            var officers = _context.Officers.Include(e => e.Hobbies).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
+            return View(officers);
         }
         
 
@@ -573,8 +573,8 @@ namespace MilitaryCollege.Controllers
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             // tournament Id assigned to current user Id 
             int TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
-            var officer = _context.Officers.Include(e => e.Languages).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
-            return View(officer);
+            var officers = _context.Officers.Include(e => e.Languages).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
+            return View(officers);
         }
 
         public ActionResult MilitaryCollegeReport()
@@ -582,8 +582,8 @@ namespace MilitaryCollege.Controllers
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             // tournament Id assigned to current user Id 
             int TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
-            var officer = _context.Officers.Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
-            return View(officer);
+            var officers = _context.Officers.Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
+            return View(officers);
         }
 
         public ActionResult AbsenceReport()
@@ -591,8 +591,34 @@ namespace MilitaryCollege.Controllers
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             // tournament Id assigned to current user Id 
             int TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
-            var officer = _context.Officers.Include(e => e.DailyIncidentents).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
-            return View(officer);
+            // all officer related to this tournamnet
+            var officers = _context.Officers.Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).Include(e => e.DailyIncidentents).ThenInclude(r=>r.ReasonOfIncident).ToList();
+
+            List<OfficerVM> LOfficerVM = new List<OfficerVM>();
+            // loop each officer to store all data with dailyincident
+            foreach (var officer in officers)
+            {
+                // only  i need name from officer 
+                OfficerVM officerVM = new OfficerVM()
+                {
+                    Name = officer.Name,
+
+                };
+                // return  list of dailyincident of this officer
+                officerVM.DailyIncidentents = _context.DailyIncidents.Where(o => o.OfficerId == officer.Id).OrderBy(s => s.StartDate).Include(r => r.ReasonOfIncident).ToList();
+                int SumOfTotalDaysInIncidents = 0;
+                foreach (var item in officerVM.DailyIncidentents)
+                {
+                    SumOfTotalDaysInIncidents += item.CountDaysOfIncident;
+                }
+
+                // count of incidents for an officer 
+                officerVM.TotalCountOfIncidentsForOfficer = officerVM.DailyIncidentents.Count;
+                // sum of total days of incidents
+                officerVM.SumOfDaysInIncidentsForOfficer = SumOfTotalDaysInIncidents;
+                LOfficerVM.Add(officerVM);
+            }
+            return View(LOfficerVM);
         }
 
     }
