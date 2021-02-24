@@ -34,23 +34,25 @@
         {
             trclass = i % 2 == 0 ? "even" : "odd";
 
+            // blue border bottom on td with rowspan
+            string latestRecord = i == Model.Count() - 1 ? "border-bottom : 2px solid #3397fb !important" : "";
 
-            <tr class="@trclass" style="border-top:2px solid black">
+            <tr class="@trclass" style="border-top:2px solid #3397fb">
 
-                <td rowspan="@officer.TotalCountOfIncidentsForOfficer"><b>@officer.Name</b></td>
+                <td rowspan="@officer.TotalCountOfIncidentsForOfficer" style="@latestRecord" ><b>@officer.Name</b></td>
                 <td>@officer.DailyIncidentents.First().ReasonOfIncident.Name</td>
                 <td>@officer.DailyIncidentents.First().StartDate.Value.ToString("yyyy-MM-dd")</td>
                 <td>@officer.DailyIncidentents.First().EndDate.Value.ToString("yyyy-MM-dd")</td>
                 <td>@officer.DailyIncidentents.First().CountDaysOfIncident</td>
                 <td>@officer.DailyIncidentents.First().Explanation</td>
-                <td rowspan="@officer.TotalCountOfIncidentsForOfficer">@officer.SumOfDaysInIncidentsForOfficer</td>
+                <td rowspan="@officer.TotalCountOfIncidentsForOfficer" style="@latestRecord">@officer.SumOfDaysInIncidentsForOfficer</td>
             </tr>
             var j = 0;
             foreach (var di in officer.DailyIncidentents)
             {
                 if (j != 0)
                 {
-                    <tr class="@trclass" style="border-top:2px solid black">
+                    <tr class="@trclass" >
 
                         <td>@di.ReasonOfIncident.Name</td>
                         <td>@di.StartDate.Value.ToString("yyyy-MM-dd")</td>
@@ -70,7 +72,7 @@
 
 @section Styles
 {
-<style>
+    <style>
     .odd {
         background-color: #dee2e6 !important;
     }
@@ -84,12 +86,27 @@
         vertical-align: middle !important;
     }
 
-    .table-bordered td, .table-bordered th {
-        border: 1px solid #495057 !important;
+    tr.odd > td {
+        border-color: #b5b5b5 !important;
     }
 
     thead {
-        background-color: #3397fb;
+        background-color: #3397fb !important;
     }
-</style>
+    table tr:last-child {
+        border-bottom: 2px solid #3397fb;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+        @@media print {
+            thead {
+                display:  table-header-group;
+            }
+        }
+   
+
+
 }
