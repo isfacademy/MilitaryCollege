@@ -556,6 +556,7 @@ namespace MilitaryCollege.Controllers
             var officers = _context.Officers.Include(e => e.EducationalAttainments).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
             return View(officers);
         }
+        [Authorize(Roles = "SuperAdmin ,Admin")]
         public ActionResult HobbiesReport()
         {
 
@@ -565,8 +566,8 @@ namespace MilitaryCollege.Controllers
             var officers = _context.Officers.Include(e => e.Hobbies).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
             return View(officers);
         }
-        
 
+        [Authorize(Roles = "SuperAdmin ,Admin")]
         public ActionResult LanguagesReport()
         {
 
@@ -576,7 +577,7 @@ namespace MilitaryCollege.Controllers
             var officers = _context.Officers.Include(e => e.Languages).Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
             return View(officers);
         }
-
+        [Authorize(Roles = "SuperAdmin ,Admin")]
         public ActionResult MilitaryCollegeReport()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -585,7 +586,7 @@ namespace MilitaryCollege.Controllers
             var officers = _context.Officers.Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
             return View(officers);
         }
-
+        [Authorize(Roles = "SuperAdmin ,Admin")]
         public ActionResult AbsenceReport()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -619,6 +620,15 @@ namespace MilitaryCollege.Controllers
                 LOfficerVM.Add(officerVM);
             }
             return View(LOfficerVM);
+        }
+
+        public ActionResult OfficerNotesReport()
+        {
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            // tournament Id assigned to current user Id 
+            int TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
+            var officers = _context.Officers.Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
+            return View(officers);
         }
 
     }
