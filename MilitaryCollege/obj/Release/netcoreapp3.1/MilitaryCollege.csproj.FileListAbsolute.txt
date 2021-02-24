@@ -214,3 +214,4 @@ C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryC
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\Razor\Views\Officers\EducationalAttainmentReport.cshtml.g.cs
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\Razor\Views\Officers\HobbiesReport.cshtml.g.cs
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\Razor\Views\Officers\LanguagesReport.cshtml.g.cs
+C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\Razor\Views\Officers\MilitaryCollegeReport.cshtml.g.cs

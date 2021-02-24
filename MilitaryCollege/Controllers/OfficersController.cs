@@ -577,5 +577,14 @@ namespace MilitaryCollege.Controllers
             return View(officer);
         }
 
+        public ActionResult MilitaryCollegeReport()
+        {
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            // tournament Id assigned to current user Id 
+            int TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
+            var officer = _context.Officers.Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
+            return View(officer);
+        }
+
     }
 }
