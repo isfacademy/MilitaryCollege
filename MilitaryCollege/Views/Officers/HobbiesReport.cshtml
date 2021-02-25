@@ -7,24 +7,22 @@
             <input type="button" value="تحميل الجدول" class="btn btn-danger" onclick="return PrintEducationalList()" />
         </div>*@
     <div class="row">
-        <table id="educationaltable" class=" dataTable table-striped table-bordered mb-3 mt-2" style="width:100%">
+        <table id="Hobbiestable" class=" dataTable table-striped table-bordered mb-3 mt-2" style="width:100%">
             <thead>
                 <tr>
                     <th>
                         الاسم و الشهرة
                     </th>
                     <th>
-                        الشهادة
+                        الهواية
                     </th>
                     <th>
-                        المصدر
+                        الشرح
                     </th>
                     <th>
-                        التاريخ
+                        المستوى
                     </th>
-                    <th>
-                        العلامة
-                    </th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -38,26 +36,24 @@
 
                     <tr class="@trclass" style="border-top:2px solid black">
 
-                        <td rowspan="@officer.EducationalAttainments.Count"><b>@officer.Name</b></td>
-                        <td>@officer.EducationalAttainments.First().Certificate</td>
-                        <td>@officer.EducationalAttainments.First().Source</td>
-                        <td>@officer.EducationalAttainments.First().Date</td>
-                        <td>@officer.EducationalAttainments.First().Grade</td>
+                        <td rowspan="@officer.Hobbies.Count"><b>@officer.Name</b></td>
+                        <td>@officer.Hobbies.First().Name</td>
+                        <td>@officer.Hobbies.First().Explanation</td>
+                        <td>@officer.Hobbies.First().Level</td>
 
                     </tr>
                     var j = 0;
 
-                    @foreach (var ed in officer.EducationalAttainments)
+                    @foreach (var H in officer.Hobbies)
                     {
 
 
                         if (j != 0)
                         {
                             <tr class="@trclass">
-                                <td>@ed.Certificate</td>
-                                <td>@ed.Source</td>
-                                <td>@ed.Date</td>
-                                <td>@ed.Grade</td>
+                                <td>@H.Name</td>
+                                <td>@H.Explanation</td>
+                                <td>@H.Level</td>
                             </tr>
                         }
                         j++;
@@ -74,7 +70,6 @@
 
 @section Styles
 {
-    @*<link href="~/css/printStyle.css" class="printStyle" rel="stylesheet" />*@
 
     <style>
         .odd {
@@ -89,19 +84,16 @@
             text-align: center;
             vertical-align: middle !important;
         }
-
-      
-        tr.odd > td {
-            border-color: #b5b5b5 !important;
+        .table-bordered td, .table-bordered th {
+            border: 1px solid #495057 !important;
         }
+
+
+
         thead {
             background-color: #3397fb;
-            height: 100px;
         }
-        table tr:last-child {
-            border-bottom: 2px solid black;
-        }
-        
     </style>
 
 }
+

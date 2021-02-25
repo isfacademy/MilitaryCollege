@@ -55,7 +55,7 @@
             <tr>
                 <td>@index</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    <b>@Html.DisplayFor(modelItem => item.Name)</b>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.MilitaryNumber)
@@ -107,10 +107,11 @@
         vertical-align: middle !important;
     }
 
-   
 
+  
     thead {
         background-color: #3397fb;
+        height:100px;
     }
 
 </style>

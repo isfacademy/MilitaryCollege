@@ -41,11 +41,12 @@
                 <div class="dropdown-menu ReportDropdownList" aria-labelledby="navbarDropdownMenuLink">
                     <a class="nav-link dropdown-item" asp-controller="Officers" asp-action="PersonelInformationReport">المعلومات الشخصية</a>
                     <a class="nav-link dropdown-item" asp-controller="Officers" asp-action="EducationalAttainmentReport">التحصيل العلمي</a>
-                    <a class="nav-link dropdown-item" href="#">الهوايات</a>
-                    <a class="nav-link dropdown-item" href="#">الكلية الحربية</a>
-                    <a class="nav-link dropdown-item" href="#">الغياب</a>
-                    <a class="nav-link dropdown-item" href="#">السلوك</a>
-                    <a class="nav-link dropdown-item" href="#">الملاحظات</a>
+                    <a class="nav-link dropdown-item" asp-controller="Officers" asp-action="LanguagesReport">اللغات</a>
+                    <a class="nav-link dropdown-item" asp-controller="Officers" asp-action="HobbiesReport">الهوايات</a>
+                    <a class="nav-link dropdown-item" asp-controller="Officers" asp-action="MilitaryCollegeReport">الكلية الحربية</a>
+                    <a class="nav-link dropdown-item" asp-controller="Officers" asp-action="AbsenceReport">الغياب</a>
+                    <a class="nav-link dropdown-item" asp-controller="Officers" asp-action="OfficerDailyNoteReport" >السلوك</a>
+                    <a class="nav-link dropdown-item" asp-controller="Officers" asp-action="OfficerNotesReport">الملاحظات</a>
 
                 </div>
             </li>

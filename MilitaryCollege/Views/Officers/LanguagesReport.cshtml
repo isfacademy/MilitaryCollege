@@ -7,23 +7,26 @@
             <input type="button" value="تحميل الجدول" class="btn btn-danger" onclick="return PrintEducationalList()" />
         </div>*@
     <div class="row">
-        <table id="educationaltable" class=" dataTable table-striped table-bordered mb-3 mt-2" style="width:100%">
+        <table id="languagestable" class=" dataTable table-striped table-bordered mb-3 mt-2" style="width:100%">
             <thead>
                 <tr>
                     <th>
                         الاسم و الشهرة
                     </th>
                     <th>
-                        الشهادة
+                        اللغة
                     </th>
                     <th>
-                        المصدر
+                        الاستماع
                     </th>
                     <th>
-                        التاريخ
+                        التكلم
                     </th>
                     <th>
-                        العلامة
+                        القراءة
+                    </th>
+                    <th>
+                        الكتابة
                     </th>
                 </tr>
             </thead>
@@ -38,26 +41,29 @@
 
                     <tr class="@trclass" style="border-top:2px solid black">
 
-                        <td rowspan="@officer.EducationalAttainments.Count"><b>@officer.Name</b></td>
-                        <td>@officer.EducationalAttainments.First().Certificate</td>
-                        <td>@officer.EducationalAttainments.First().Source</td>
-                        <td>@officer.EducationalAttainments.First().Date</td>
-                        <td>@officer.EducationalAttainments.First().Grade</td>
+                        <td rowspan="@officer.Languages.Count"><b>@officer.Name</b></td>
+                        <td>@officer.Languages.First().Name</td>
+                        <td>@officer.Languages.First().Listen</td>
+                        <td>@officer.Languages.First().Speak</td>
+                        <td>@officer.Languages.First().Read</td>
+                        <td>@officer.Languages.First().Write</td>
+
 
                     </tr>
                     var j = 0;
 
-                    @foreach (var ed in officer.EducationalAttainments)
+                    @foreach (var L in officer.Languages)
                     {
 
 
                         if (j != 0)
                         {
                             <tr class="@trclass">
-                                <td>@ed.Certificate</td>
-                                <td>@ed.Source</td>
-                                <td>@ed.Date</td>
-                                <td>@ed.Grade</td>
+                                <td>@L.Name</td>
+                                <td>@L.Listen</td>
+                                <td>@L.Speak</td>
+                                <td>@L.Read</td>
+                                <td>@L.Write</td>
                             </tr>
                         }
                         j++;
@@ -74,7 +80,6 @@
 
 @section Styles
 {
-    @*<link href="~/css/printStyle.css" class="printStyle" rel="stylesheet" />*@
 
     <style>
         .odd {
@@ -89,19 +94,16 @@
             text-align: center;
             vertical-align: middle !important;
         }
-
-      
-        tr.odd > td {
-            border-color: #b5b5b5 !important;
-        }
         thead {
             background-color: #3397fb;
-            height: 100px;
+        }
+        tr.odd > td {
+            border-color: #b5b5b5 !important;
         }
         table tr:last-child {
             border-bottom: 2px solid black;
         }
-        
     </style>
 
 }
+
