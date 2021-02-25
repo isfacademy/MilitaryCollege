@@ -621,7 +621,7 @@ namespace MilitaryCollege.Controllers
             }
             return View(LOfficerVM);
         }
-
+        [Authorize(Roles = "SuperAdmin ,Admin")]
         public ActionResult OfficerNotesReport()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -629,6 +629,27 @@ namespace MilitaryCollege.Controllers
             int TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
             var officers = _context.Officers.Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
             return View(officers);
+        }
+        [Authorize(Roles = "SuperAdmin ,Admin")]
+        public ActionResult OfficerDailyNoteReport()
+        {
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            // tournament Id assigned to current user Id 
+            int TournamentId = _context.UserTournaments.Where(u => u.UserId == userId).Select(t => t.TournamentId).FirstOrDefault();
+            var officers = _context.Officers.Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
+            List<OfficerVmForDailyNotesReport> LOVM = new List<OfficerVmForDailyNotesReport>();
+            foreach (var officer in officers)
+            {
+                OfficerVmForDailyNotesReport ovm = new OfficerVmForDailyNotesReport();
+                ovm.Name = officer.Name;
+                ovm.DailyNotesPositive  = _context.DailyNotes.Where(o => o.OfficerId == officer.Id && o.IsPositive==true).OrderBy(s => s.CreationDate).ToList();
+                ovm.DailyNotesNegative = _context.DailyNotes.Where(o => o.OfficerId == officer.Id && o.IsPositive == false).OrderBy(s => s.CreationDate).ToList();
+
+                ovm.DailyNotes = _context.DailyNotes.Where(o => o.OfficerId == officer.Id).OrderBy(s => s.CreationDate).ToList();
+                ovm.CountMaxNotes = ovm.DailyNotesPositive.Count >= ovm.DailyNotesNegative.Count ? ovm.DailyNotesPositive.Count : ovm.DailyNotesNegative.Count;
+                LOVM.Add(ovm);
+            }
+            return View(LOVM);
         }
 
     }
