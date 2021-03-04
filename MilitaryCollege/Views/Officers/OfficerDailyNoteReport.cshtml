@@ -58,12 +58,12 @@
                 else
                 {
                     <td rowspan="@item.CountMaxNotes">@item.Name</td>
-
+                    string IsImportantOrNot_Image = item.DailyNotes.First().IsImportant ? "IsImportantImage.png" : "IsNotImportantImage.png";
                     if (item.DailyNotes.First().IsPositive)
                     {
                         <td>@item.DailyNotes.First().CreationDate.ToString("yyyy-MM-dd")</td>
                         <td>@item.DailyNotes.First().Note</td>
-                        <td><img src="~/Media/IsImportantImage.png" /></td>
+                        <td><img src="~/Media/@IsImportantOrNot_Image" /></td>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
@@ -75,7 +75,7 @@
                         <td>-</td>
                         <td>@item.DailyNotes.First().CreationDate.ToString("yyyy-MM-dd")</td>
                         <td>@item.DailyNotes.First().Note</td>
-                        <td><img src="~/Media/IsNotImportantImage.png" /></td>
+                        <td><img src="~/Media/@IsImportantOrNot_Image" /></td>
                     }
                 }
 
@@ -86,12 +86,14 @@
             {
                 if (j != 0)
                 {
+                    string IsImportantOrNot_Image = dn.IsImportant ? "IsImportantImage.png" : "IsNotImportantImage.png";
+
                     @if (dn.IsPositive)
                     {
                         <tr class="@trclass">
                             <td>@dn.CreationDate.ToString("yyyy-MM-dd")</td>
                             <td>@dn.Note</td>
-                            <td><img src="~/Media/IsImportantImage.png" /></td>
+                            <td><img src="~/Media/@IsImportantOrNot_Image" /></td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
@@ -105,7 +107,7 @@
                             <td>-</td>
                             <td>@dn.CreationDate.ToString("yyyy-MM-dd")</td>
                             <td>@dn.Note</td>
-                            <td><img src="~/Media/IsNotImportantImage.png" /></td>
+                            <td><img src="~/Media/@IsImportantOrNot_Image" /></td>
                         </tr>
                     }
                 }
