@@ -647,6 +647,7 @@ namespace MilitaryCollege.Controllers
 
                 ovm.DailyNotes = _context.DailyNotes.Where(o => o.OfficerId == officer.Id).OrderBy(s => s.CreationDate).ToList();
                 ovm.CountMaxNotes =  ovm.DailyNotesPositive.Count + ovm.DailyNotesNegative.Count;
+
                 LOVM.Add(ovm);
             }
             return View(LOVM);
