@@ -37,9 +37,9 @@
             // blue border bottom on td with rowspan
             string latestRecord = i == Model.Count() - 1 ? "border-bottom : 2px solid #3397fb !important" : "";
 
-            <tr class="@trclass" style="border-top:2px solid #3397fb">
+            <tr class="@trclass" style="border-top:2px solid #3397fb !important">
 
-                <td rowspan="@officer.TotalCountOfIncidentsForOfficer" style="@latestRecord" ><b>@officer.Name</b></td>
+                <td rowspan="@officer.TotalCountOfIncidentsForOfficer" style="@latestRecord"><b>@officer.Name</b></td>
                 <td>@officer.DailyIncidentents.First().ReasonOfIncident.Name</td>
                 <td>@officer.DailyIncidentents.First().StartDate.Value.ToString("yyyy-MM-dd")</td>
                 <td>@officer.DailyIncidentents.First().EndDate.Value.ToString("yyyy-MM-dd")</td>
@@ -52,7 +52,7 @@
             {
                 if (j != 0)
                 {
-                    <tr class="@trclass" >
+                    <tr class="@trclass">
 
                         <td>@di.ReasonOfIncident.Name</td>
                         <td>@di.StartDate.Value.ToString("yyyy-MM-dd")</td>
@@ -73,32 +73,32 @@
 @section Styles
 {
     <style>
-    .odd {
-        background-color: #dee2e6 !important;
-    }
+        .odd {
+            background-color: #dee2e6 !important;
+        }
 
-    .even {
-        background-color: unset !important;
-    }
+        .even {
+            background-color: unset !important;
+        }
 
-    table.dataTable td, table.dataTable th {
-        text-align: center;
-        vertical-align: middle !important;
-    }
+        table.dataTable td, table.dataTable th {
+            text-align: center;
+            vertical-align: middle !important;
+        }
+        
 
-    tr.odd > td {
-        border-color: #b5b5b5 !important;
-    }
+        tr.odd > td {
+            border-color: #b5b5b5 !important;
+        }
 
         thead {
-            background-color: #85c2ff !important;
-            font-size: 1.5em;
+            font-size: 1.3em;
         }
-    table tr:last-child {
-        border-bottom: 2px solid #3397fb;
-    }
 
- </style>
+        table tr:last-child {
+            border-bottom: 2px solid #3397fb !important;
+        }
+    </style>
 
 
 }

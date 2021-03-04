@@ -48,12 +48,12 @@
                 @if (item.CountMaxNotes == 0)
                 {
                     <td>@item.Name</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
                 }
                 else
                 {
@@ -64,15 +64,15 @@
                         <td>@item.DailyNotes.First().CreationDate.ToString("yyyy-MM-dd")</td>
                         <td>@item.DailyNotes.First().Note</td>
                         <td><img src="~/Media/IsImportantImage.png" /></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
                     }
                     else
                     {
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
                         <td>@item.DailyNotes.First().CreationDate.ToString("yyyy-MM-dd")</td>
                         <td>@item.DailyNotes.First().Note</td>
                         <td><img src="~/Media/IsNotImportantImage.png" /></td>
@@ -92,17 +92,17 @@
                             <td>@dn.CreationDate.ToString("yyyy-MM-dd")</td>
                             <td>@dn.Note</td>
                             <td><img src="~/Media/IsImportantImage.png" /></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
                         </tr>
                     }
                     else
                     {
                         <tr class="@trclass">
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
                             <td>@dn.CreationDate.ToString("yyyy-MM-dd")</td>
                             <td>@dn.Note</td>
                             <td><img src="~/Media/IsNotImportantImage.png" /></td>
@@ -134,7 +134,6 @@
         }
 
         thead {
-            background-color: #85c2ff;
             font-size: 1.5em;
         }
 

@@ -154,5 +154,9 @@ a.btn-logout:hover {
     box-shadow: 0 10px 2px -2px #05baff;
 }
 
+thead {
+    background-color: #85c2ff !important;
+}
+
 
 
