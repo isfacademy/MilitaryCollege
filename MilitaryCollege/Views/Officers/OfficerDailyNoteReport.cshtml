@@ -3,7 +3,7 @@
     <thead>
 
         <tr>
-            <th rowspan="2">الاسم و الشهرة</th>
+            <th rowspan="2" style="min-width: 140px">الاسم و الشهرة</th>
             <th colspan="3" style="width:50%">
                 @Html.DisplayName("ايجابيات")
             </th>
@@ -36,28 +36,49 @@
     <tbody>
 
 
+        @{   
+            var i = 0;
+            string trclass = "";
+            }
         @foreach (var item in Model)
         {
-            <tr>
-                <td rowspan="@item.CountMaxNotes">@item.Name</td>
-                @if (item.DailyNotes.First().IsPositive)
+            trclass = i % 2 == 0 ? "even" : "odd";
+
+            <tr class="@trclass" style="border-top:2px solid #3397fb">
+                @if (item.CountMaxNotes == 0)
                 {
-                    <td>@item.DailyNotes.First().CreationDate.ToString("yyyy-MM-dd")</td>
-                    <td>@item.DailyNotes.First().Note</td>
-                    <td><img src="~/Media/IsImportantImage.png" /></td>
+                    <td>@item.Name</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 }
                 else
                 {
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>@item.DailyNotes.First().CreationDate.ToString("yyyy-MM-dd")</td>
-                    <td>@item.DailyNotes.First().Note</td>
-                    <td><img src="~/Media/IsNotImportantImage.png" /></td>
+                    <td rowspan="@item.CountMaxNotes">@item.Name</td>
+
+                    if (item.DailyNotes.First().IsPositive)
+                    {
+                        <td>@item.DailyNotes.First().CreationDate.ToString("yyyy-MM-dd")</td>
+                        <td>@item.DailyNotes.First().Note</td>
+                        <td><img src="~/Media/IsImportantImage.png" /></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>@item.DailyNotes.First().CreationDate.ToString("yyyy-MM-dd")</td>
+                        <td>@item.DailyNotes.First().Note</td>
+                        <td><img src="~/Media/IsNotImportantImage.png" /></td>
+                    }
                 }
+
             </tr>
 
             int j = 0;
@@ -67,7 +88,7 @@
                 {
                     @if (dn.IsPositive)
                     {
-                        <tr>
+                        <tr class="@trclass">
                             <td>@dn.CreationDate.ToString("yyyy-MM-dd")</td>
                             <td>@dn.Note</td>
                             <td><img src="~/Media/IsImportantImage.png" /></td>
@@ -78,7 +99,7 @@
                     }
                     else
                     {
-                        <tr>
+                        <tr class="@trclass">
                             <td></td>
                             <td></td>
                             <td></td>
@@ -87,9 +108,44 @@
                             <td><img src="~/Media/IsNotImportantImage.png" /></td>
                         </tr>
                     }
-                    j++;
                 }
+                j++;
+
             }
+            i++;
         }
     </tbody>
 </table>
+
+@section Styles
+{
+    <style>
+        .odd {
+            background-color: #dee2e6 !important;
+        }
+
+        .even {
+            background-color: unset !important;
+        }
+
+        table.dataTable td, table.dataTable th {
+            text-align: center;
+            vertical-align: middle !important;
+        }
+
+        thead {
+            background-color: #85c2ff;
+            font-size: 1.5em;
+        }
+
+        tr.odd > td {
+            border-color: #b5b5b5 !important;
+        }
+
+       
+
+        table tr:last-child {
+            border-bottom: 2px solid #3397fb;
+        }
+    </style>
+}
