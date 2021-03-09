@@ -34,14 +34,25 @@
                 {
                     trclass = i % 2 == 0 ? "even" : "odd";
 
-                    <tr class="@trclass" style="border-top:2px solid black">
+                <tr class="@trclass" style="border-top:2px solid black">
+                    @if (officer.Hobbies.Count == 0)
+                    {
+                        <td><b>@officer.Name</b></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
 
+                    }
+                    else
+                    {
                         <td rowspan="@officer.Hobbies.Count"><b>@officer.Name</b></td>
                         <td>@officer.Hobbies.First().Name</td>
                         <td>@officer.Hobbies.First().Explanation</td>
                         <td>@officer.Hobbies.First().Level</td>
+                    }
 
-                    </tr>
+
+                </tr>
                     var j = 0;
 
                     @foreach (var H in officer.Hobbies)
