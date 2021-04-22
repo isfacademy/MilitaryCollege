@@ -8,9 +8,9 @@
             <th>
                 ملاحظات آمر الدورة
             </th>
-            
+
         </tr>
-       
+
     </thead>
     <tbody>
         @foreach (var officer in Model)
@@ -20,9 +20,9 @@
                     <b>@Html.DisplayFor(model => officer.Name)</b>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => officer.Notes)
+                    @Html.TextAreaFor(model => officer.Notes, new { @class = "textAreaNote", @readonly = "readonly" })
                 </td>
-                
+
             </tr>
         }
 
@@ -42,6 +42,22 @@
             height: 100px;
             font-size: 1.5em;
         }
+
+
+        .textAreaNote {
+            width: 100%;
+            border: hidden;
+            background: transparent !important ;
+        }
     </style>
 
+}
+
+@section Scripts
+{
+    <script src="~/js/autoresize.jquery.js"></script>
+    <script>
+        $('.textAreaNote').autoResize();
+
+    </script>
 }
