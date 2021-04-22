@@ -47,7 +47,9 @@
         .textAreaNote {
             width: 100%;
             border: hidden;
-            background: transparent !important ;
+            background: transparent !important;
+            resize: none;
+            outline: none;
         }
     </style>
 
@@ -55,9 +57,12 @@
 
 @section Scripts
 {
-    <script src="~/js/autoresize.jquery.js"></script>
     <script>
-        $('.textAreaNote').autoResize();
-
+        $("textarea").each(function () {
+            this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
+        }).on("input", function () {
+            this.style.height = "auto";
+            this.style.height = (this.scrollHeight) + "px";
+        });
     </script>
 }
