@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -13,19 +13,6 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\.gitattributes" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\.gitignore" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\CHANGELOG.md" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\gulpfile.js" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\lib\jquery-1.10.2.min.js" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\lib\jquery.mousewheel.pack.js" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\README.md" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\source\helpers\jquery.fancybox-buttons.js" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\source\helpers\jquery.fancybox-media.js" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\source\helpers\jquery.fancybox-thumbs.js" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\source\jquery.fancybox.js" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\source\jquery.fancybox.pack.js" />
-    <None Include="wwwroot\lib\fancybox-2.1.7\sprite.psd" />
     <None Include="wwwroot\lib\jquery-ui-1.12.1\external\jquery\jquery.js" />
     <None Include="wwwroot\lib\jquery-ui-1.12.1\jquery-ui.js" />
     <None Include="wwwroot\lib\jquery-ui-1.12.1\jquery-ui.min.js" />
