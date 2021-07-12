@@ -86,6 +86,7 @@ C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryC
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\LICENSE
+C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\fancybox-2.1.7.zip
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\jquery-ui-1.12.1\AUTHORS.txt
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\jquery-ui-1.12.1\external\jquery\jquery.js
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\jquery-ui-1.12.1\images\ui-icons_444444_256x240.png

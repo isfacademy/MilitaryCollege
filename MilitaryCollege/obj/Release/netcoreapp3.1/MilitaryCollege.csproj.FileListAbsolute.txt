@@ -217,3 +217,4 @@ C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryC
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\MilitaryCollege.genruntimeconfig.cache
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\bin\Release\netcoreapp3.1\MilitaryCollege.pdb
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\bin\Release\netcoreapp3.1\MilitaryCollege.Views.pdb
+C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\MilitaryCollege.csproj.AssemblyReference.cache
