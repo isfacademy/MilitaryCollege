@@ -427,7 +427,7 @@ namespace MilitaryCollege.Controllers
 
         }
 
-        [Authorize(Roles = "SuperAdmin,Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin , AdminInvT")]
         [HttpGet]
         public ActionResult AdministrationDailyReportNote(DateTime? currentdate = null)
         {
@@ -452,7 +452,7 @@ namespace MilitaryCollege.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "SuperAdmin,Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin  ,AdminInvT")]
         public async Task<ActionResult> AdministrationDailyReportNote(DailyReportVM dailyReportVM, string SubmitButton)
         {
             DailyReport dailyReport = null;

@@ -586,7 +586,7 @@ namespace MilitaryCollege.Controllers
             var officers = _context.Officers.Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
             return View(officers);
         }
-        [Authorize(Roles = "SuperAdmin ,Admin")]
+        [Authorize(Roles = "SuperAdmin ,Admin , AdminInvT")]
         public ActionResult AbsenceReport()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -621,7 +621,7 @@ namespace MilitaryCollege.Controllers
             }
             return View(LOfficerVM);
         }
-        [Authorize(Roles = "SuperAdmin ,Admin")]
+        [Authorize(Roles = "SuperAdmin ,Admin , AdminInvT")]
         public ActionResult OfficerNotesReport()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -630,7 +630,7 @@ namespace MilitaryCollege.Controllers
             var officers = _context.Officers.Where(t => t.TournamentId == TournamentId).OrderBy(o => o.MilitaryNumber).ToList();
             return View(officers);
         }
-        [Authorize(Roles = "SuperAdmin ,Admin")]
+        [Authorize(Roles = "SuperAdmin ,Admin , AdminInvT")]
         public ActionResult OfficerDailyNoteReport()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
