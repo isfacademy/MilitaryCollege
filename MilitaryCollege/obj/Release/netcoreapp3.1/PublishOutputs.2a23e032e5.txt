@@ -173,6 +173,7 @@ C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryC
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Media\Officer_Profile\fa9ae693-577b-409a-a4e2-e9bd811aaac7_AX9I0589.JPG
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Media\Tournament\47a826f5-0927-476d-b2bc-ca6342800b21_windows-46797004.jpg
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Media\Tournament\default_tournament_image.jpg
+C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Media\Tournament\f262c127-8202-42c5-92a0-e176caabfc56_windows-46797004.jpg
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.Development.json
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.json
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\PubTmp\Out\MilitaryCollege.dll
