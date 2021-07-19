@@ -50,7 +50,7 @@
 
         <div class="row">
             @* ألوقوعات اليومية   *@
-            <table class="dataTable table-striped table-bordered mb-3 mt-2" style="width:100%">
+            <table class="dataTable DailyIncidentTablee table-striped table-bordered mb-3 mt-2" style="width:100%">
                 <thead>
                     <tr>
                         <th colspan="9" class="text-center" style="background-color: #85c2ff">الوقوعات اليومية</th>
@@ -114,7 +114,7 @@
 
         <div class="row mb-5">
             @* الملاحظات اليومية   *@
-            <table class="dataTable table-striped table-bordered mb-3 mt-2" style="width:100%">
+            <table class="dataTable  table-striped table-bordered mb-3 mt-2" style="width:100%">
                 <thead>
                     <tr>
                         <th colspan="6" class="text-center" style="background-color: #85c2ff">الملاحظات اليومية</th>
@@ -226,20 +226,36 @@
 
 @section Styles
 {
+    <link href="~/css/DataTable/jquery.dataTables.min.css" rel="stylesheet" />
+
     <style>
-
-
         table.dataTable td, table.dataTable th {
             text-align: center;
             vertical-align: middle !important;
+        }
+
+        table.dataTable {
+            clear:unset !important;
         }
     </style>
 }
 
 @section Scripts
 {
-<script>
-    $('.DailyReportAdministration').addClass("active");
+    <script src="~/js/DataTable/jquery.dataTables.min.js"></script>
 
-</script>
+    <script>
+
+        $(document).ready(function () {
+            $('.DailyIncidentTablee').DataTable({
+                responsive: true,
+                aaSorting: [],
+                language: DataTablesLang
+            });
+        });
+    </script>
+    <script>
+        $('.DailyReportAdministration').addClass("active");
+
+    </script>
 }
