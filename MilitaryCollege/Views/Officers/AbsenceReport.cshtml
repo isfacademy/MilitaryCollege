@@ -36,35 +36,64 @@
 
             // blue border bottom on td with rowspan
             string latestRecord = i == Model.Count() - 1 ? "border-bottom : 2px solid #3397fb !important" : "";
-
-            <tr class="@trclass" style="border-top:2px solid #3397fb !important">
-
-                <td rowspan="@officer.TotalCountOfIncidentsForOfficer" style="@latestRecord"><b>@officer.Name</b></td>
-                <td>@officer.DailyIncidentents.First().ReasonOfIncident.Name</td>
-                <td>@officer.DailyIncidentents.First().StartDate.Value.ToString("yyyy-MM-dd")</td>
-                <td>@officer.DailyIncidentents.First().EndDate.Value.ToString("yyyy-MM-dd")</td>
-                <td>@officer.DailyIncidentents.First().CountDaysOfIncident</td>
-                <td>@officer.DailyIncidentents.First().Explanation</td>
-                <td rowspan="@officer.TotalCountOfIncidentsForOfficer" style="@latestRecord">@officer.SumOfDaysInIncidentsForOfficer</td>
-            </tr>
-            var j = 0;
-            foreach (var di in officer.DailyIncidentents)
+            int TotalCountOfIncidentsForOfficer = officer.TotalCountOfIncidentsForOfficer != 0 ? officer.TotalCountOfIncidentsForOfficer : 0;
+            @if (TotalCountOfIncidentsForOfficer == 0)
             {
-                if (j != 0)
-                {
-                    <tr class="@trclass">
+                <tr class="@trclass" style="border-top:2px solid #3397fb !important">
+                    <td style="@latestRecord"><b>@officer.Name</b></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
 
-                        <td>@di.ReasonOfIncident.Name</td>
-                        <td>@di.StartDate.Value.ToString("yyyy-MM-dd")</td>
-                        <td>@di.EndDate.Value.ToString("yyyy-MM-dd")</td>
-                        <td>@di.CountDaysOfIncident</td>
-                        <td>@di.Explanation</td>
-                    </tr>
-                }
-                j++;
+            }
+            else
+            {
+                <tr class="@trclass" style="border-top:2px solid #3397fb !important">
+                    <td rowspan="@TotalCountOfIncidentsForOfficer" style="@latestRecord"><b>@officer.Name</b></td>
+                    <td>@officer.DailyIncidentents.First().ReasonOfIncident.Name</td>
+                    <td>@officer.DailyIncidentents.First().StartDate.Value.ToString("yyyy-MM-dd")</td>
+                    <td>@officer.DailyIncidentents.First().EndDate.Value.ToString("yyyy-MM-dd")</td>
+                    <td>@officer.DailyIncidentents.First().CountDaysOfIncident</td>
+                    <td>@officer.DailyIncidentents.First().Explanation</td>
+                    @if (TotalCountOfIncidentsForOfficer != 1)
+                    {
+                        <td rowspan="@TotalCountOfIncidentsForOfficer" style="@latestRecord">@officer.SumOfDaysInIncidentsForOfficer</td>
+                    }
+                    else
+                    {
+                        <td style="@latestRecord">@officer.SumOfDaysInIncidentsForOfficer</td>
+                    }
+
+                </tr>
             }
 
-            i++;
+
+            var j = 0;
+            if (officer.DailyIncidentents.Count > 0)
+            {
+                foreach (var di in officer.DailyIncidentents)
+                {
+                    if (j != 0)
+                    {
+                        <tr class="@trclass">
+
+                            <td>@di.ReasonOfIncident.Name</td>
+                            <td>@di.StartDate.Value.ToString("yyyy-MM-dd")</td>
+                            <td>@di.EndDate.Value.ToString("yyyy-MM-dd")</td>
+                            <td>@di.CountDaysOfIncident</td>
+                            <td>@di.Explanation</td>
+                        </tr>
+                    }
+                    j++;
+                }
+
+                i++;
+            }
+          
         }
 
     </tbody>
@@ -85,7 +114,7 @@
             text-align: center;
             vertical-align: middle !important;
         }
-        
+
 
         tr.odd > td {
             border-color: #b5b5b5 !important;
