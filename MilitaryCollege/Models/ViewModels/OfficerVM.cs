@@ -25,7 +25,7 @@ namespace MilitaryCollege.Models.ViewModels
         public IFormFile Profileimage { get; set; }
         public string  ExistingImage { get; set; }
         [Required(ErrorMessage = "الاسم مطلوب")]
-        [DisplayName("الرتبة / الاسم والشهرة")]
+        [DisplayName("الرتبة،الاسم الثلاثي ")]
         public string Name { get; set; }
         [DisplayName("الرقم المالي")]
         public int? MilitaryNumber { get; set; }
@@ -44,9 +44,9 @@ namespace MilitaryCollege.Models.ViewModels
 
         public DateTime BirthDate { get; set; }
 
-        [DisplayName(" مكان القيد")]
+        [DisplayName(" مكان ورقم السجل")]
         public string BirthAddress { get; set; }
-        [DisplayName("مكان السكن")]
+        [DisplayName("عنوان السكن")]
         public string Address { get; set; }
 
         [DisplayName("جنسية غير لبنانية")]
