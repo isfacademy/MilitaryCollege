@@ -39,37 +39,50 @@
                 {
                     trclass = i % 2 == 0 ? "even" : "odd";
 
-                    <tr class="@trclass" style="border-top:2px solid black">
+                <tr class="@trclass" style="border-top:2px solid black">
 
+                    @if (officer.Languages.Count == 0)
+                    {
+                        <td><b>@officer.Name</b></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    }
+                    else
+                    {
                         <td rowspan="@officer.Languages.Count"><b>@officer.Name</b></td>
                         <td>@officer.Languages.First().Name</td>
                         <td>@officer.Languages.First().Listen</td>
                         <td>@officer.Languages.First().Speak</td>
                         <td>@officer.Languages.First().Read</td>
                         <td>@officer.Languages.First().Write</td>
-
-
-                    </tr>
+                    }
+                </tr>
                     var j = 0;
 
-                    @foreach (var L in officer.Languages)
-                    {
-
-
-                        if (j != 0)
+                        @foreach (var L in officer.Languages)
                         {
-                            <tr class="@trclass">
-                                <td>@L.Name</td>
-                                <td>@L.Listen</td>
-                                <td>@L.Speak</td>
-                                <td>@L.Read</td>
-                                <td>@L.Write</td>
-                            </tr>
-                        }
-                        j++;
 
-                    }
-                    i++;
+
+                            if (j != 0)
+                            {
+                                <tr class="@trclass">
+                                    <td>@L.Name</td>
+                                    <td>@L.Listen</td>
+                                    <td>@L.Speak</td>
+                                    <td>@L.Read</td>
+                                    <td>@L.Write</td>
+                                </tr>
+                            }
+                            j++;
+
+                        }
+                        i++;
+                    
+
+
 
                 }
             </tbody>

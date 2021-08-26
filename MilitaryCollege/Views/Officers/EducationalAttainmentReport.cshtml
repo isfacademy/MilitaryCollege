@@ -36,36 +36,50 @@
                 {
                     trclass = i % 2 == 0 ? "even" : "odd";
 
-                    <tr class="@trclass" style="border-top:2px solid black">
+                <tr class="@trclass" style="border-top:2px solid black">
+                    @if (officer.EducationalAttainments.Count == 0)
+                    {
+                        <td><b>@officer.Name</b></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
 
+                    }
+                    else
+                    {
                         <td rowspan="@officer.EducationalAttainments.Count"><b>@officer.Name</b></td>
                         <td>@officer.EducationalAttainments.First().Certificate</td>
                         <td>@officer.EducationalAttainments.First().Source</td>
                         <td>@officer.EducationalAttainments.First().Date</td>
                         <td>@officer.EducationalAttainments.First().Grade</td>
+                    }
 
-                    </tr>
+
+                </tr>
                     var j = 0;
 
-                    @foreach (var ed in officer.EducationalAttainments)
-                    {
-
-
-                        if (j != 0)
+                        @foreach (var ed in officer.EducationalAttainments)
                         {
-                            <tr class="@trclass">
-                                <td>@ed.Certificate</td>
-                                <td>@ed.Source</td>
-                                <td>@ed.Date</td>
-                                <td>@ed.Grade</td>
-                            </tr>
+
+
+                            if (j != 0)
+                            {
+                                <tr class="@trclass">
+                                    <td>@ed.Certificate</td>
+                                    <td>@ed.Source</td>
+                                    <td>@ed.Date</td>
+                                    <td>@ed.Grade</td>
+                                </tr>
+                            }
+                            j++;
+
                         }
-                        j++;
-
+                        i++;
                     }
-                    i++;
 
-                }
+
+                
             </tbody>
         </table>
     </div>
