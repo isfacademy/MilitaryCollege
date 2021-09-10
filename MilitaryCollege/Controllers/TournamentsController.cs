@@ -45,7 +45,7 @@ namespace MilitaryCollege.Controllers
             ICollection<Tournament> tournaments;
             if (User.IsInRole("SuperAdmin")|| User.IsInRole("Viewer"))
             {
-                tournaments = await _context.Tournaments.ToListAsync();
+                tournaments = await _context.Tournaments.OrderByDescending(i=>i.Id).ToListAsync();
             }
             else
             {
