@@ -18,5 +18,6 @@ namespace MilitaryCollege.Models.ViewModels
         [DisplayName("حفظ")]
         public bool RememberMe { get; set; }
 
+
     }
 }
