@@ -19,5 +19,6 @@ namespace MilitaryCollege.Models.ViewModels
         public bool RememberMe { get; set; }
 
 
+
     }
 }
