@@ -163,7 +163,6 @@ C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryC
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\MilitaryCollege.RazorAssemblyInfo.cs
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\staticwebassets\MilitaryCollege.StaticWebAssets.Manifest.cache
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\staticwebassets\MilitaryCollege.StaticWebAssets.xml
-C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\scopedcss\bundle\MilitaryCollege.styles.css
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\MilitaryCollege.TagHelpers.input.cache
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\MilitaryCollege.TagHelpers.output.cache
 C:\Users\DAMAJ-PC\Documents\Visual Studio 2019\Project\MilitaryCollege\MilitaryCollege\obj\Release\netcoreapp3.1\MilitaryCollege.RazorCoreGenerate.cache
