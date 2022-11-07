@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TPuB2QhdgKaBWd2JzReRI5YDYOv2jVIGhj60yPU/DyKfQp+uO+eWnIu2QhIKyV8tOIobRruWvkm+sTXk20ib2w==",
+  "dgSpecHash": "kO1LejZ7QeydpEmHcRYpUy1lwK0NXQpVMjp4UVDXyrnrb38NZM6SWrJcNjPNjRUr8/e4fO3quelmocHoEYBBJg==",
   "success": true,
   "projectFilePath": "C:\\Users\\DAMAJ-PC\\Documents\\Visual Studio 2019\\Project\\MilitaryCollege\\MilitaryCollege\\MilitaryCollege.csproj",
   "expectedPackageFiles": [
@@ -186,7 +186,7 @@
     "C:\\Users\\DAMAJ-PC\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\DAMAJ-PC\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.26\\microsoft.netcore.app.host.win-x64.3.1.26.nupkg.sha512"
+    "C:\\Users\\DAMAJ-PC\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512"
   ],
   "logs": []
 }
